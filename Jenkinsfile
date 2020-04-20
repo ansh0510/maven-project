@@ -22,7 +22,13 @@ stages{
                 }
             }
         }
-
+stage ('gitdemo') {
+            steps {
+                build job: 'gitdemo', parameters: [
+                string(name: 'param1', value: "value1")
+                ]
+            }
+        }
         stage ('Deployments'){
             parallel{
                 stage ('Deploy to Staging'){
